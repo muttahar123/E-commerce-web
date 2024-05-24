@@ -208,12 +208,12 @@ var products = [
 ];
 
 var allProducts = document.getElementById("all-products");
-
+var cartNumber = document.getElementById("cart-number");
 for (let i = 0; i < products.length; i++) {
   console.log("products==>", products[i]);
   var productElements = `<section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+  <div class="container flex px-5 py-24 mx-auto">
+    <div class="lg:w-2/5 my-1  mx-auto flex flex-wrap">
       <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="${products[i].image}">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
@@ -300,6 +300,10 @@ for (let i = 0; i < products.length; i++) {
 
 function Addtocart(element){
     if (element.innerHTML == 'Added') {
-        
+        cartNumber.innerHTML = cartNumber.innerText -1;
+        element.innerText='Add';
+    }else{
+      cartNumber.innerHTML = parseInt(cartNumber.innerText) +1;
+      element.innerHTML = "Added"
     }
 }
