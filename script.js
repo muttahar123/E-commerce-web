@@ -206,14 +206,14 @@ var products = [
     rating: { rate: 3.6, count: 145 },
   },
 ];
-
+var changeclr = document.getElementById("changeclr")
 var allProducts = document.getElementById("all-products");
 var cartNumber = document.getElementById("cart-number");
 for (let i = 0; i < products.length; i++) {
   console.log("products==>", products[i]);
   var productElements = `<section class="text-gray-600 body-font overflow-hidden">
   <div class="container flex px-5 py-24 mx-auto">
-    <div class="lg:w-2/5 my-1  mx-auto flex flex-wrap">
+    <div class="lg:w-4/5 my-1  mx-auto flex flex-wrap">
       <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="${products[i].image}">
       <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
         <h2 class="text-sm title-font text-gray-500 tracking-widest">BRAND NAME</h2>
@@ -284,10 +284,10 @@ for (let i = 0; i < products.length; i++) {
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900">$58.00</span>
           <button class="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded" onclick = "Addtocart(this)">Add</button>
-          <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-            </svg>
+          <button id="changeclr" onclick = "favourite(this)" class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+          <svg id="heartIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="heart-icon empty" viewBox="0 0 24 24" onclick="toggleHeartColor()">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z">
+      </svg>
           </button>
         </div>
       </div>
@@ -307,3 +307,30 @@ function Addtocart(element){
       element.innerHTML = "Added"
     }
 }
+function toggleHeartColor() {
+  var heartIcon = document.getElementById("heartIcon");
+  heartIcon.classList.toggle("filled");
+  heartIcon.classList.toggle("empty");
+}
+// function favourite(elements){
+//   if(elements.innerHTML ==  <button id="changeclr" onclick = "favourite(this)" class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+//   <svg id="changeclr" fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+//     <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+//   </svg>
+// </button>){
+//    changeclr.innerHTML = <button id="changeclr" onclick = "favourite(this)" class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+//    <svg id="changeclr" fill="#dc2626" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+//      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+//    </svg>
+//  </button>
+// }
+    // alert("hi")
+// }
+
+
+{/* <svg  fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+            </svg> */}
+
+
+// id="changeclr"
